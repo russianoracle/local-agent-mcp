@@ -2,18 +2,14 @@
   "name": "local-agent-mcp",
   "version": "0.1.0",
   "description": "Local LLM MCP server for Claude Code — delegates heavy tasks to on-device models via oMLX on Apple Silicon. Zero cloud calls.",
-  "author": "Artem Gusarov",
-  "license": "MIT",
+  "author": {
+    "name": "Artem Gusarov",
+    "email": "gusarovartem@me.com",
+    "url": "https://github.com/russianoracle"
+  },
   "repository": "https://github.com/russianoracle/local-agent-mcp",
-  "mcp": {
-    "servers": [
-      {
-        "name": "local-agent",
-        "description": "Delegate code audit and file-write tasks to local Qwen on M3 Pro GPU via oMLX.",
-        "transport": "stdio",
-        "command": "uvx",
-        "args": ["local-agent-mcp"]
-      }
-    ]
-  }
+  "license": "MIT",
+  "keywords": ["mcp", "local-ai", "apple-silicon", "llm", "omlx", "code-audit"],
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills"
 }

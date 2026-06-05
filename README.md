@@ -19,35 +19,41 @@ Also includes **`llm_mlx_tools_server.py`** — a second MCP server exposing emb
 
 ## Install
 
-```bash
-uvx local-agent-mcp
-```
-
-Or clone and run directly:
+### Plugin (MCP + skill, recommended)
 
 ```bash
-git clone https://github.com/russianoracle/local-agent-mcp
-cd local-agent-mcp
-uv run local_agent_bridge.py
+# Installs MCP server + qwen-coder skill in one command
+claude plugin install russianoracle/local-agent-mcp
 ```
 
-## Claude Code integration
+### MCP only
 
-Add to your `~/.claude/mcp.json` or project `.mcp.json`:
+```bash
+# Register the MCP server (stdio transport)
+claude mcp add -e OMLX_URL=http://localhost:8000 -e OMLX_API_KEY=1986 \
+  local-agent -- uvx local-agent-mcp
+```
 
-```json
-{
-  "mcpServers": {
-    "local-agent": {
-      "command": "uvx",
-      "args": ["local-agent-mcp"],
-      "env": {
-        "HTTP_PROXY": "",
-        "HTTPS_PROXY": ""
-      }
-    }
-  }
-}
+> **Note:** `uvx local-agent-mcp` requires the package to be published on PyPI.
+> Until then, use the direct path:
+> ```bash
+> claude mcp add -e OMLX_URL=http://localhost:8000 -e OMLX_API_KEY=1986 \
+>   local-agent -- uv run --with "mcp[fastmcp]" --with httpx \
+>   python /path/to/local_agent_bridge.py
+> ```
+
+### Skill only
+
+```bash
+npx skills add russianoracle/local-agent-mcp@qwen-coder
+```
+
+### Manual (project scope)
+
+Copy `.mcp.json` to your project root and add to project scope:
+
+```bash
+claude mcp add --scope project ...
 ```
 
 ## Configuration
