@@ -8,7 +8,7 @@
     "access": "public"
   },
   "keywords": ["mcp", "llm", "local-ai", "apple-silicon", "claude-code", "omlx"],
-  "author": "Artem Gusarov <gusarovartem@me.com>",
+  "author": "russianoracle",
   "license": "MIT",
   "repository": {
     "type": "git",

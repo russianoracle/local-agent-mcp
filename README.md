@@ -30,14 +30,14 @@ claude plugin install russianoracle/local-agent-mcp
 
 ```bash
 # Register the MCP server (stdio transport)
-claude mcp add -e OMLX_URL=http://localhost:8000 -e OMLX_API_KEY=1986 \
+claude mcp add -e OMLX_URL=http://localhost:8000 -e OMLX_API_KEY=your-api-key \
   local-agent -- uvx local-agent-mcp
 ```
 
 > **Note:** `uvx local-agent-mcp` requires the package to be published on PyPI.
 > Until then, use the direct path:
 > ```bash
-> claude mcp add -e OMLX_URL=http://localhost:8000 -e OMLX_API_KEY=1986 \
+> claude mcp add -e OMLX_URL=http://localhost:8000 -e OMLX_API_KEY=your-api-key \
 >   local-agent -- uv run --with "mcp[fastmcp]" --with httpx \
 >   python /path/to/local_agent_bridge.py
 > ```
@@ -61,7 +61,7 @@ claude mcp add --scope project ...
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `OMLX_URL` | `http://localhost:8000` | oMLX server URL |
-| `OMLX_API_KEY` | `1986` | oMLX API key (set via env, never hardcode) |
+| `OMLX_API_KEY` | _(required)_ | oMLX API key — set via env |
 | `MODEL_ID` | `llm_default` | Model alias on oMLX |
 
 Set via MCP config env block or shell export:
