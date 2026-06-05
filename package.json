@@ -1,0 +1,20 @@
+{
+  "name": "@russianoracle/local-agent-mcp",
+  "version": "0.1.0",
+  "description": "Local LLM MCP server — delegates tasks to on-device models via oMLX on Apple Silicon",
+  "mcpName": "io.github.russianoracle/local-agent-mcp",
+  "main": "local_agent_bridge.py",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["mcp", "llm", "local-ai", "apple-silicon", "claude-code", "omlx"],
+  "author": "Artem Gusarov <gusarovartem@me.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/russianoracle/local-agent-mcp.git"
+  },
+  "engines": {
+    "python": ">=3.10"
+  }
+}

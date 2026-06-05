@@ -1,0 +1,43 @@
+[project]
+name = "local-agent-mcp"
+version = "0.1.0"
+description = "Local LLM MCP server — delegates tasks to on-device models via oMLX on Apple Silicon"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10,<3.14"
+authors = [
+    {name = "Artem Gusarov", email = "gusarovartem@me.com"}
+]
+keywords = ["mcp", "llm", "local-ai", "apple-silicon", "claude-code", "omlx"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+    "mcp[fastmcp]>=1.0.0",
+    "httpx>=0.27.0",
+    "mlx-embeddings>=0.1.0",
+    "sentence-transformers>=5.5.1",
+]
+
+[project.scripts]
+local-agent-mcp = "local_agent_bridge:mcp.run"
+
+[project.urls]
+Homepage = "https://github.com/russianoracle/local-agent-mcp"
+Repository = "https://github.com/russianoracle/local-agent-mcp"
+Issues = "https://github.com/russianoracle/local-agent-mcp/issues"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.12"
+typeCheckingMode = "basic"

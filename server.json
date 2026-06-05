@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.russianoracle/local-agent-mcp",
+  "description": "Delegates code audit and file-write tasks to a local LLM running on Apple Silicon via oMLX. Zero cloud calls — M3 Pro GPU inference.",
+  "repository": {
+    "url": "https://github.com/russianoracle/local-agent-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registry_name": "pypi",
+      "name": "local-agent-mcp",
+      "version": "0.1.0",
+      "runtime_arguments": ["-m", "local_agent_bridge"],
+      "environment_variables": []
+    }
+  ]
+}
