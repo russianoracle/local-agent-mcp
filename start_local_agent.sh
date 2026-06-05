@@ -1,8 +1,10 @@
 #!/bin/bash
 # Check oMLX health and start if not running
-if ! curl -sf -H "Authorization: Bearer 1986" http://localhost:8000/health > /dev/null 2>&1; then
+OMLX_URL="${OMLX_URL:-http://localhost:8000}"
+OMLX_API_KEY="${OMLX_API_KEY:-1986}"
+if ! curl -sf -H "Authorization: Bearer ${OMLX_API_KEY}" "${OMLX_URL}/health" > /dev/null 2>&1; then
     echo "Starting oMLX..."
     omlx start
     sleep 3
 fi
-echo "oMLX ready at :8000"
+echo "oMLX ready at ${OMLX_URL}"

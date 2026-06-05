@@ -1,5 +1,6 @@
 import asyncio
 import json
+import os
 import httpx
 import sys
 from contextlib import asynccontextmanager
@@ -8,8 +9,8 @@ from pydantic import Field
 from mcp.server.fastmcp import FastMCP, Context
 from mcp.types import ToolAnnotations
 
-OMLX_URL = "http://localhost:8000"
-OMLX_API_KEY = "1986"
+OMLX_URL = os.environ.get("OMLX_URL", "http://localhost:8000")
+OMLX_API_KEY = os.environ.get("OMLX_API_KEY", "1986")
 AUTH_HEADERS = {"Authorization": f"Bearer {OMLX_API_KEY}"}
 
 # Model alias — change on the oMLX server to switch models without touching code

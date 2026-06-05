@@ -55,8 +55,15 @@ Add to your `~/.claude/mcp.json` or project `.mcp.json`:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `OMLX_URL` | `http://localhost:8000` | oMLX server URL |
-| `OMLX_API_KEY` | `1986` | oMLX API key |
+| `OMLX_API_KEY` | `1986` | oMLX API key (set via env, never hardcode) |
 | `MODEL_ID` | `llm_default` | Model alias on oMLX |
+
+Set via MCP config env block or shell export:
+
+```bash
+export OMLX_URL=http://localhost:8000
+export OMLX_API_KEY=your-key
+```
 
 Change model server-side via `omlx alias set llm_default <model-id>` — no code changes needed.
 

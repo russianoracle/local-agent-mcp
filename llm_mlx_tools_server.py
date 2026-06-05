@@ -12,12 +12,13 @@ Models are lazy-loaded on first call to avoid startup latency.
 from __future__ import annotations
 import math
 import json
+import os
 import httpx
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("llm-mlx-tools")
 
-VLLM_URL = "http://localhost:8000"
+VLLM_URL = os.environ.get("OMLX_URL", "http://localhost:8000")
 
 _embed_model = None
 _embed_processor = None
